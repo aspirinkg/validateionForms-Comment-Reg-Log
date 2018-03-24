@@ -77,10 +77,22 @@ $(document).ready(function () {
 								error = $('#error', 'form'),
 								valid = true;
 
-							if (email == 'mail@mail.ru' && password == '123') {
+
+
+							if(email == 'mail@mail.ru' && password == '123'){
 								$('#submit').submit();
+							}	
+
+							if (email != 'mail@mail.ru' && password != '123') {
+								$('.error-description').fadeIn();
+								errorPassEmail.fadeIn();
+								valid = false;
 							}
-							
+							else{
+								$('.error-description').fadeOut();
+								errorPassEmail.fadeOut();
+							}
+
 
 
 
@@ -127,7 +139,7 @@ $(document).ready(function () {
 										errorPassEmailTooltip = $('input[type=text]', 'form').attr('data-errorPassEmail');
 			
 										
-							let beforeElem = $('input[type=text]', 'form'),
+							let beforeElem = $('.error-description', 'form'),
 											errorEmailBlock = $('<div id="errorEmail" class="error">' + emailErrorTooltip + '</div>'),
 											errorFormatEmail = $('<div id="errorFormatEmail" class="error">' + errorFormatEmailTooltip + '</div>'),
 											errorPassword = $('<div id="errorPassword" class="error">' + passwordErrorTooltip + '</div>'),
