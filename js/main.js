@@ -77,15 +77,10 @@ $(document).ready(function () {
 								error = $('#error', 'form'),
 								valid = true;
 
-							if ((email == 'mail@mail.ru' && password == '123') || email == 'mail@mail.ru') {
-								
-								errorPassEmail.fadeIn();
-								valid = false;
+							if (email == 'mail@mail.ru' && password == '123') {
+								$('#submit').submit();
 							}
-							else{
-								errorPassEmail.fadeOut();
-							}
-
+							
 
 
 
@@ -238,7 +233,7 @@ $(document).ready(function () {
 											errorPassword = $('<div id="errorPassword" class="error">' + passwordErrorTooltip + '</div>');
 											emailIsBusy = $('<div id="emailIsBusy" class="error error--with-desc">Данный email уже занят</div>');
 
-							beforeElem.after(errorEmailBlock, emailNotValid, errorPassword, emailIsBusy);
+							beforeElem.before(errorEmailBlock, emailNotValid, errorPassword, emailIsBusy);
 						}
 					}
 
